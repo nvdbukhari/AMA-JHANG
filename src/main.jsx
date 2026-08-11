@@ -213,7 +213,12 @@ function InvoiceDetail({d,user,id,go,toast}){
   {inv.guarantorName&&<div className="card"><h3 className="section-title">Guarantor</h3><Info label="Name" v={inv.guarantorName}/><Info label="Mobile" v={inv.guarantorMobile}/></div>}
  </Page>
 }
-function Info({label,v}){return <div><div className="muted small">{label}</div><div style={{fontWeight:600,marginTop:2}}>{v||"—"}</div></div>}
+function Info({label,v}){
+  return <div>
+    <div className="muted small">{label}</div>
+    <div style={{fontWeight:600,marginTop:2}}>{v||"—"}</div>
+  </div>
+}
 
 function Installment({d,user,pre,go,toast}){
  const mine=d.invoices.filter(i=>(user.role==="ADMIN"||i.recoveryManId===user.id)&&statusOf(i)!=="COMPLETED");
